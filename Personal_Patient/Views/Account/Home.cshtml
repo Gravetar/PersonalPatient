@@ -1,0 +1,24 @@
+﻿@model Patient
+@{
+    //ViewData["Title"] = "Список пациентов";
+    Layout = null;
+}
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Оформление заказа</title>
+</head>
+<body>
+    <div>
+        <h3>Просмотр пациента</h3>
+        <p>Пациент:</p>
+        <form method="get">
+            <h1>@Model.name @Model.surname @Model.patronymic</h1>
+        </form>
+    </div>
+</body>
+</html>

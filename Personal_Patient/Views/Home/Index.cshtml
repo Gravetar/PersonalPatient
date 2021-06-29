@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Personal_Patient.Models.Patient>
+@{
+    //ViewData["Title"] = "Список пациентов";
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Список пациентов</title>
+</head>
+<body>
+    <h3>Пациенты</h3>
+    <table>
+        <tr>
+            <td>Имя</td>
+            <td>Фамилия</td>
+            <td>Отчество</td>
+            <td>Дата рождения</td>
+            <td>Номер полиса</td>
+            <td>Немер и серия паспорта</td>
+            <td>Почта</td>
+            <td>Немер телефона</td>
+            <td></td>
+        </tr>
+        @foreach (var patient in Model)
+        {
+    <tr>
+        <td>@patient.name</td>
+        <td>@patient.surname</td>
+        <td>@patient.patronymic</td>
+        <td>@patient.dateofbirth.ToString("d")</td>
+        <td>@patient.numberpolicy</td>
+        <td>@patient.numberpassport</td>
+        <td>@patient.email</td>
+        <td>@patient.phone</td>
+        <td><a href="~/Account/Home/@patient.id">Перейти</a></td>
+    </tr>
+        }
+    </table>
+</body>
+</html>
