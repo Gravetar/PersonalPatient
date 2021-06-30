@@ -1,0 +1,62 @@
+﻿@model Personal_Patient.Models.RegisterModel
+
+<h2>Регистрация</h2>
+
+<form asp-action="Register" asp-controller="Account" asp-anti-forgery="true">
+    <div class="validation" asp-validation-summary="ModelOnly"></div>
+    <div>
+        <div>
+            <label asp-for="Name">Введите Имя</label><br />
+            <input type="text" asp-for="Name" />
+            <span asp-validation-for="Name" />
+        </div>
+        <div>
+            <label asp-for="Surname">Введите Фамилию</label><br />
+            <input type="text" asp-for="Surname" />
+            <span asp-validation-for="Surname" />
+        </div>
+        <div>
+            <label asp-for="Patronymic">Введите Отчество</label><br />
+            <input type="text" asp-for="Patronymic" />
+            <span asp-validation-for="Patronymic" />
+        </div>
+        <div>
+            <label asp-for="Dateofbirth">Выбирите дату рождения</label><br />
+            <input type="date" asp-for="Dateofbirth" />
+            <span asp-validation-for="Dateofbirth" />
+        </div>
+        <div>
+            <label asp-for="Numberpolicy">Введите номер полиса</label><br />
+            <input type="text" asp-for="Numberpolicy" />
+            <span asp-validation-for="Numberpolicy" />
+        </div>
+        <div>
+            <label asp-for="Numberpassport">Введите номер и серию паспорта</label><br />
+            <input type="text" asp-for="Numberpassport" />
+            <span asp-validation-for="Numberpassport" />
+        </div>
+        <div>
+            <label asp-for="Phone">Введите номер телефона</label><br />
+            <input type="text" asp-for="Phone" />
+            <span asp-validation-for="Phone" />
+        </div>
+        <div>
+            <label asp-for="Email">Введите Почту(Email)</label><br />
+            <input type="text" asp-for="Email" />
+            <span asp-validation-for="Email" />
+        </div>
+        <div>
+            <label asp-for="Password">Введите пароль</label><br />
+            <input asp-for="Password" />
+            <span asp-validation-for="Password" />
+        </div>
+        <div>
+            <label asp-for="ConfirmPassword">Повторите пароль</label><br />
+            <input asp-for="ConfirmPassword" />
+            <span asp-validation-for="ConfirmPassword" />
+        </div>
+        <div>
+            <input type="submit" value="Регистрация" />
+        </div>
+    </div>
+</form>
