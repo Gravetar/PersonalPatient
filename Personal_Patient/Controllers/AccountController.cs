@@ -5,16 +5,18 @@ using Personal_Patient.Models;
 
 namespace Personal_Patient.Controllers
 {
-    public class Account : Controller
+    public class AccountController : Controller
     {
         PersonalPatientContext db;
-        public Account(PersonalPatientContext context)
+
+        public AccountController(PersonalPatientContext context)
         {
             db = context;
         }
-        public IActionResult Index()
+
+        public IActionResult Index(string name, string password)
         {
-            return View();
+            return View(db.patients.FirstOrDefault(p => p.name == name && p.password == password));
         }
 
         [HttpGet]

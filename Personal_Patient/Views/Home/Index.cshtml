@@ -1,5 +1,4 @@
-﻿@model IEnumerable<Personal_Patient.Models.Patient>
-@{
+﻿@{
     //ViewData["Title"] = "Список пациентов";
     Layout = null;
 }
@@ -11,22 +10,14 @@
 </head>
 <body>
     <h3>Пациенты</h3>
-    <table>
-        <tr>
-            <td><b>Имя</b></td>
-            <td><b>Фамилия</b></td>
-            <td><b>Отчество</b></td>
-            <td></td>
-        </tr>
-        @foreach (var patient in Model)
-        {
-    <tr>
-        <td>@patient.name</td>
-        <td>@patient.surname</td>
-        <td>@patient.patronymic</td>
-        <td><a href="~/Account/Home/@patient.id">Перейти</a></td>
-    </tr>
-        }
-    </table>
+
+    <form method="post" action="~/Account">
+        <label for="name">Имя</label><br />
+        <input type="text" name="name" id="name" /><br /><br />
+        <label for="password">Пароль</label><br />
+        <input type="text" name="password" id="password" /><br /><br />
+
+        <input type="submit" value="Оправить" /><br /><br />
+    </form>
 </body>
 </html>
