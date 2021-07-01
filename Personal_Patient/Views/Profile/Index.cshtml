@@ -1,0 +1,53 @@
+﻿@model Patient
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Personal_Patient</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+</head>
+<body>
+    <div id="grid">
+        <div class="p_block">
+            <label class="p_label">Фамилия</label><br>
+            <label class="p_text">@Model.surname</label>
+        </div>
+        <div class="p_block">
+            <label class="p_label">Номер полиса</label><br>
+            <label class="p_text">@Model.numberpolicy</label>
+        </div>
+        <div class="p_block">
+            <label class="p_label">Имя</label><br>
+            <label class="p_text">@Model.name</label>
+        </div>
+        <div class="p_block">
+            <label class="p_label">Номер и серия паспорта</label><br>
+            <label class="p_text">@Model.numberpassport</label>
+        </div>
+        <div class="p_block">
+            <label class="p_label">Отчество</label><br>
+            <label class="p_text">@Model.patronymic</label>
+        </div>
+        <div><br></div>
+        <div><br></div>
+        <div class="p_block">
+            <label class="p_label">Email-адрес</label><br>
+            <label class="p_text">@Model.email</label>
+        </div>
+        <div class="p_block">
+            <label class="p_label">Дата рождения</label><br>
+            <label class="p_text">@Model.dateofbirth.ToString("MM.dd.yyyy")</label>
+        </div>
+        <div class="p_block">
+            <label class="p_label">Телефон</label><br>
+            <label class="p_text">@Model.phone</label>
+        </div>
+    </div>
+    <div class="p_edit">Редактировать информацию</div>
+    <div class="p_photo"></div>
+</body>
+</html>

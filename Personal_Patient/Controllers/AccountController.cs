@@ -50,7 +50,7 @@ namespace Personal_Patient.Controllers
 
                     await Authenticate(patient); // аутентификация
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Profile");
                 }
                 else
                     ModelState.AddModelError("", "Пользователь с такой почтой уже зарегистрирован");
@@ -73,7 +73,7 @@ namespace Personal_Patient.Controllers
                 {
                     await Authenticate(patient); // аутентификация
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Profile");
                 }
                 ModelState.AddModelError("", "Некорректные логин и(или) пароль");
             }
@@ -93,6 +93,12 @@ namespace Personal_Patient.Controllers
                 ClaimsIdentity.DefaultRoleClaimType);
             // установка аутентификационных куки
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

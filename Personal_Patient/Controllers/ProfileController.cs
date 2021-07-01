@@ -5,14 +5,21 @@ using Personal_Patient.Models;
 using Personal_Patient.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using System.Threading.Tasks;
+using System;
+using System.Globalization;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 
 namespace Personal_Patient.Controllers
 {
-    public class HomeController : Controller
+    public class ProfileController : Controller
     {
         PersonalPatientContext db;
-        public HomeController(PersonalPatientContext context)
+        public ProfileController(PersonalPatientContext context)
         {
             db = context;
         }
