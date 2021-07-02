@@ -40,14 +40,14 @@
         </div>
         <div class="p_block">
             <label class="p_label">Дата рождения</label><br>
-            <label class="p_text">@Model.dateofbirth.ToString("MM.dd.yyyy")</label>
+            <label class="p_text">@Model.dateofbirth.ToString("dd.MM.yyyy")</label>
         </div>
         <div class="p_block">
             <label class="p_label">Телефон</label><br>
             <label class="p_text">@Model.phone</label>
         </div>
     </div>
-    <div class="p_edit">Редактировать информацию</div>
+    <a class="p_edit" href="~/Account/Edit">Редактировать информацию</a>
     <div class="p_photo"></div>
 </body>
 </html>

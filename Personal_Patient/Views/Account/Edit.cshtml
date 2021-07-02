@@ -1,0 +1,55 @@
+﻿@model EditModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Personal_Patient</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+</head>
+<body>
+    @using (Html.BeginForm("Edit", "Account"))
+    {
+        <div id="grid">
+            <div class="p_block">
+                <label class="p_label">Имя</label><br>
+                <label class="p_text">@Html.EditorFor(model => model.Name)</label>
+            </div>
+            <div class="p_block">
+                <label class="p_label">Номер полиса</label><br>
+                <label class="p_text">@Html.EditorFor(model => model.Numberpolicy)</label>
+            </div>
+            <div class="p_block">
+                <label class="p_label">Фамилия</label><br>
+                <label class="p_text">@Html.EditorFor(model => model.Surname)</label>
+            </div>
+            <div class="p_block">
+                <label class="p_label">Номер и серия паспорта</label><br>
+                <label class="p_text">@Html.EditorFor(model => model.Numberpassport)</label>
+            </div>
+            <div class="p_block">
+                <label class="p_label">Отчество</label><br>
+                <label class="p_text">@Html.EditorFor(model => model.Patronymic)</label>
+            </div>
+            <div><br></div>
+            <div><br></div>
+            <div class="p_block">
+                <label class="p_label">Email-адрес</label><br>
+                <label class="p_text">@Html.EditorFor(model => model.Email)</label>
+            </div>
+            <div class="p_block">
+                <label class="p_label">Дата рождения</label><br>
+                 <label>@Html.EditorFor(model => model.Dateofbirth)</label>
+            </div>
+            <div class="p_block">
+                <label class="p_label">Телефон</label><br>
+                <label class="p_text">@Html.EditorFor(model => model.Phone)</label>
+            </div>
+        </div>
+        <div class="p_photo"></div>
+        <input class="e_save_btn" type ="submit" value="Сохранить изменения" />
+    }
+    </body>
+</html>

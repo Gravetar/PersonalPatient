@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Linq;
 
 namespace Personal_Patient.Controllers
 {
@@ -99,6 +100,72 @@ namespace Personal_Patient.Controllers
         {
             await HttpContext.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public IActionResult Edit()
+        {
+            string useremail = User.Identity.Name;
+            
+            Patient patient = _context.patients.FirstOrDefault(p => p.email.Equals(useremail));
+            
+            EditModel model = new EditModel();
+            model.Surname = patient.surname;
+            model.Name = patient.name;
+            model.Patronymic = patient.patronymic;
+            model.Dateofbirth = patient.dateofbirth;
+            model.Numberpolicy = patient.numberpolicy;
+            model.Numberpassport = patient.numberpassport;
+            model.Email = patient.email;
+            model.Phone = patient.phone;
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(EditModel patientprofile)
+        {
+            if (ModelState.IsValid)
+            {
+                string useremail = User.Identity.Name;
+                
+                Patient patient = _context.patients.FirstOrDefault(p => p.email.Equals(useremail));
+
+                
+                patient.name = patientprofile.Name;
+                patient.surname = patientprofile.Surname;
+                patient.email = patientprofile.Email;
+
+                patient.surname = patientprofile.Surname;
+                patient.name = patientprofile.Name;
+                patient.patronymic = patientprofile.Patronymic;
+                patient.dateofbirth = patientprofile.Dateofbirth;
+                patient.numberpolicy = patientprofile.Numberpolicy;
+                patient.numberpassport = patientprofile.Numberpassport;
+                patient.email = patientprofile.Email;
+                patient.phone = patientprofile.Phone;
+
+                _context.Entry(patient).State = EntityState.Modified;
+
+                _context.SaveChanges();
+
+                return RedirectToAction("Index", "Profile"); 
+            }
+
+            return View(patientprofile);
+        }
+
+        /// <summary>
+        /// Получение текущего пользователя
+        /// </summary>
+        /// <returns></returns>
+        protected Patient CurrentPatient()
+        {
+            var val = User.FindFirst(x => x.Type == ClaimsIdentity.DefaultNameClaimType).Value;
+            if (val == null)
+                return null;
+            Patient patient = _context.patients.FirstOrDefault(p => p.email == val);
+            return patient;
         }
     }
 }
