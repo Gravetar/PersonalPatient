@@ -117,8 +117,8 @@ body {
     width: 430px;
     height: 430px;
     position: absolute;
-    top: 30%;
     left: 20%;
+    top: 30%;
     background-color: #838383;
 }
 
@@ -127,5 +127,48 @@ body {
     width: 430px;
     position: absolute;
     top: 25%;
+    left: 20%;
+}
+
+.reg_l {
+    font-size: 12pt;
+    margin-top: 2%;
+    color: #494949;
+}
+
+.reg_in {
+    font-size: 14pt;
+    margin: 1%;
+}
+
+.reg_btn {
+    font-size: 14pt;
+    margin-top: 5%;
+    position: absolute;
+    left: 35%;
+}
+
+.reg_al_reg {
+    font-size: 12pt;
+    margin-top: 15%;
+    position: absolute;
+    left: 30%;
+}
+
+.registaration {
+    position: absolute;
+    left: 35%;
+    width: 430px;
+    height: 750px;
+    margin: 2%;
+    border-style: solid;
+    border-width: 2pt;
+    border-radius: 2pt;
+}
+
+.reg_head {
+    font-weight: bold;
+    font-size: 18pt;
+    position: relative;
     left: 20%;
 }
